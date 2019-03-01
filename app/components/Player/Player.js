@@ -19,6 +19,7 @@ export default class Player extends Component<Props> {
       barWidth: 2,
       height: 80
     });
+    this.wavesurfer.load('http://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3')
   }
 
   loadWaveForm = () => {
@@ -30,7 +31,8 @@ export default class Player extends Component<Props> {
     return (
       <div className={styles.container} data-tid="container">
         <p>Player goes here!</p>
-        <a onClick={this.loadWaveForm}>Load Waveform</a>
+        {/* <a onClick={this.loadWaveForm}>Load Waveform</a> */}
+        {/* <img src='' */}
         <div className={styles.waveform} id='waveform'></div>
       </div>
     );
