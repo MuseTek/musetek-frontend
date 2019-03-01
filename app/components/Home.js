@@ -8,6 +8,13 @@ import SampleList from './SampleList/SampleList'
 
 type Props = {};
 
+const testsamples = [
+    {name: "sample1", path: "a file path to sample1", tags: ["dark", "ambient"], duration: 1234},
+    {name: "sample2", path: "a file path to sample2", tags: ["bright", "punchy"], duration: 2345},
+  ]
+
+
+
 export default class Home extends Component<Props> {
   props: Props;
 
@@ -19,7 +26,8 @@ export default class Home extends Component<Props> {
         </div>
 
         <div className={styles.sampleList}>
-          <SampleList/>
+          <SampleList samples={testsamples}/>
+
         </div>
       </div>
     );
