@@ -1,5 +1,6 @@
 // @flow
-import { app, Menu, shell, BrowserWindow } from 'electron';
+import { app, Menu, shell, BrowserWindow, dialog } from 'electron';
+import storage from 'electron-json-storage';
 
 export default class MenuBuilder {
   mainWindow: BrowserWindow;
@@ -25,6 +26,21 @@ export default class MenuBuilder {
     Menu.setApplicationMenu(menu);
 
     return menu;
+  }
+
+  importFile() {
+    console.log("in import");
+    const selected = dialog.showOpenDialog({
+      properties: ['openFile'],
+      filters: [{
+        name: 'Audio Samples',
+        extension: ['mp3', 'wav']
+      }]
+    }, (samplePath) => {
+      console.log(samplePath);
+      //write file name, file path, etc to json
+      //save json to storage
+    });
   }
 
   setupDevelopmentEnvironment() {
@@ -194,6 +210,14 @@ export default class MenuBuilder {
             accelerator: 'Ctrl+W',
             click: () => {
               this.mainWindow.close();
+            }
+          },
+          {
+            label: '&Import',
+            accelerator: 'Ctrl+I',
+            click: () => {
+              //add function to import files
+              this.importFile();
             }
           }
         ]
