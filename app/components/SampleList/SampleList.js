@@ -16,7 +16,7 @@ export default class SampleList extends Component<Props> {
       <div className={styles.container} data-tid="container">
         <table className={styles.head}>
           <tr>
-            <th>Song name</th>
+            <th>Name</th>
             <th>Path</th>
             <th>Duration</th>
             <th>Tags</th>
