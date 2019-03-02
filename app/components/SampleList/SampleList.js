@@ -15,13 +15,17 @@ export default class SampleList extends Component<Props> {
     return (
       <div className={styles.container} data-tid="container">
         <p>Samples go here!</p>
-        <div className="sample">
-          <span>
+        <table>
+          <tr>
+            <th>Song name</th>
+            <th>Path</th>
+            <th>Duration</th>
+            <th>Tags</th>
+          </tr>
           {
             this.props.samples.map(s=> <SampleListItem name={s.name} path={s.path} tags={s.tags} duration={s.duration} />)
           }
-          </span>
-        </div>
+        </table>
       </div>
     );
   }

@@ -11,9 +11,26 @@ export default class SampleListItem extends Component<Props> {
 
   render() {
     return (
-        <div className="sample">
-         <span>{this.props.name} stored in {this.props.path}</span>
-        </div>
+    	<tr>
+        <td>
+         {this.props.name}
+        </td>
+        <td>
+          {this.props.path}
+        </td>
+        <td>
+          {this.props.duration}
+        </td>
+        <td>
+          <table>
+          	<tr>
+          		{this.props.tags.map(item => {
+          			return <td>|{item}|</td>;
+        		})}
+          	</tr>
+          </table>
+        </td>
+        </tr>
     );
   }
 
