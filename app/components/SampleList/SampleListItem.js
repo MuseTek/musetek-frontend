@@ -11,25 +11,25 @@ export default class SampleListItem extends Component<Props> {
 
   render() {
     return (
-    	<tr>
-        <td>
-         {this.props.name}
-        </td>
-        <td>
-          {this.props.path}
-        </td>
-        <td>
-          {this.props.duration}
-        </td>
-        <td>
-          <table>
-          	<tr>
-          		{this.props.tags.map(item => {
-          			return <td>|{item}|</td>;
-        		})}
-          	</tr>
-          </table>
-        </td>
+    	<tr className={styles.row}>
+	        <td className={styles.td1}>
+	         {this.props.name}
+	        </td>
+	        <td className={styles.td2}>
+	          {this.props.path}
+	        </td>
+	        <td className={styles.td3}>
+	          {this.props.duration}
+	        </td>
+	        <td className={styles.td4}>
+	          <table>
+	          	<tr>
+	          		{this.props.tags.map(item => {
+	          			return <td>|{item}|</td>;
+	        		})}
+	          	</tr>
+	          </table>
+	        </td>
         </tr>
     );
   }

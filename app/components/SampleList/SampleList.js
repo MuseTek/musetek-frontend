@@ -14,18 +14,21 @@ export default class SampleList extends Component<Props> {
   render() {
     return (
       <div className={styles.container} data-tid="container">
-        <p>Samples go here!</p>
-        <table>
+        <table className={styles.head}>
           <tr>
             <th>Song name</th>
             <th>Path</th>
             <th>Duration</th>
             <th>Tags</th>
           </tr>
-          {
-            this.props.samples.map(s=> <SampleListItem name={s.name} path={s.path} tags={s.tags} duration={s.duration} />)
-          }
         </table>
+        <div className={styles.innerTable}>
+          <table className={styles.songsTable}>
+            {
+              this.props.samples.map(s=> <SampleListItem name={s.name} path={s.path} tags={s.tags} duration={s.duration} />)
+            }
+          </table>
+        </div>
       </div>
     );
   }
