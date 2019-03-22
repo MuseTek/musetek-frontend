@@ -9,9 +9,22 @@ type Props = {};
 export default class SampleListItem extends Component<Props> {
   props: Props
 
+//send the selected sample to the waveform using ipcrenderer
+  loadSample = () => {
+    let currentSample = this.props.path
+    console.log("loading in specific sample")
+    const {ipcRenderer} = require('electron')
+    console.log("sup")
+
+    ipcRenderer.send('update-sample', currentSample)
+
+  }
+
   render() {
+
     return (
-    	<tr className={styles.row}>
+    	<tr onClick={this.loadSample} className={styles.row}>
+
 	        <td className={styles.td1}>
 	         {this.props.name}
 	        </td>

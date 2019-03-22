@@ -13,6 +13,13 @@ export default class Player extends Component {
       playing: true,
     };
     this.wavesurfer;
+    //loading sample from samplelistitem
+    const { ipcMain } = require('electron').remote
+      ipcMain.on('update-sample', (event, arg)=>{
+        console.log('updating sample')
+        console.log("arg is " + arg)
+        this.wavesurfer.load(arg)
+        })
   }
 
   componentDidMount() {
@@ -21,12 +28,16 @@ export default class Player extends Component {
       barWidth: 2,
       height: 80
     });
-    this.wavesurfer.load('http://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3')
+    this.wavesurfer.load('http://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/abou_ben_adhem_hunt_mlb.mp3')
   }
 
   loadWaveForm = () => {
     console.log("loading in waveform")
     this.wavesurfer.load('http://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3')
+  }
+
+  updateSample = () => {
+
   }
 
   play = () => {
@@ -66,6 +77,7 @@ export default class Player extends Component {
   }
 
   render() {
+
     return (
       <div className={styles.container} data-tid="container">
         <p>Player goes here!</p>

@@ -8,8 +8,8 @@ import SampleList from './SampleList/SampleList'
 import storage from 'electron-json-storage';
 
 const testsamples = [
-    {name: "sample1", path: "a file path to sample1", tags: ["dark", "ambient"], duration: 1234},
-    {name: "sample2", path: "a file path to sample2", tags: ["bright", "punchy"], duration: 2345},
+    {name: "rain (local to roddur)", path: "C:\\Users\\roddu\\Documents\\Audacity\\Samples\\rain.mp3", tags: ["dark", "ambient"], duration: 1234},
+    {name: "birds chirping (local to roddur)", path: "C:\\Users\\roddu\\Documents\\Audacity\\Samples\\birds chirping.mp3", tags: ["bright", "punchy"], duration: 2345},
   ]
 
 export default class Home extends Component {
