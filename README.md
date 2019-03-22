@@ -4,16 +4,16 @@ Front end for Musetek application, built with Electron and React
 Tasks for Front End
 
  - Player
-	 - Play/Pause Audio file
+	 - Play/Pause Audio file DONE
 	 - Next/Previous file
-	 - Load in audio file based on sample selected in the list
+	 - Load in audio file based on sample selected in the list DONE
 
  - Sample List
 	 - List samples with various information (library to do something like this?)
-		 - Filename
+		 - Filename 
 		 - Length
 		 - Associated Tags
-	 - Selected sample loads in player
+	 - Selected sample loads in player DONE
 
  - Search / Filtering
 	 - Be able to select different filters to change display list
