@@ -17,7 +17,6 @@ export default class SampleList extends Component<Props> {
         <table className={styles.head}>
           <tr>
             <th>Name</th>
-            <th>Path</th>
             <th>Duration</th>
             <th>Tags</th>
           </tr>

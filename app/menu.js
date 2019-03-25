@@ -202,22 +202,18 @@ export default class MenuBuilder {
         label: '&File',
         submenu: [
           {
-            label: '&Open',
-            accelerator: 'Ctrl+O'
-          },
-          {
-            label: '&Close',
-            accelerator: 'Ctrl+W',
-            click: () => {
-              this.mainWindow.close();
-            }
-          },
-          {
-            label: '&Import',
-            accelerator: 'Ctrl+I',
+            label: '&Open File...',
+            accelerator: 'Ctrl+O',
             click: () => {
               //add function to import files
               this.importFile();
+            }
+          },
+          {
+            label: '&Exit',
+            accelerator: 'Ctrl+W',
+            click: () => {
+              this.mainWindow.close();
             }
           }
         ]
@@ -278,12 +274,6 @@ export default class MenuBuilder {
               shell.openExternal(
                 'https://github.com/atom/electron/tree/master/docs#readme'
               );
-            }
-          },
-          {
-            label: 'Community Discussions',
-            click() {
-              shell.openExternal('https://discuss.atom.io/c/electron');
             }
           },
           {

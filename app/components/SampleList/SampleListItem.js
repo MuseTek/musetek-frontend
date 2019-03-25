@@ -12,12 +12,9 @@ export default class SampleListItem extends Component<Props> {
 //send the selected sample to the waveform using ipcrenderer
   loadSample = () => {
     let currentSample = this.props.path
-    console.log("loading in specific sample")
+    console.log("loading in sample at" + currentSample)
     const {ipcRenderer} = require('electron')
-    console.log("sup")
-
     ipcRenderer.send('update-sample', currentSample)
-
   }
 
   render() {
@@ -27,9 +24,6 @@ export default class SampleListItem extends Component<Props> {
 
 	        <td className={styles.td1}>
 	         {this.props.name}
-	        </td>
-	        <td className={styles.td2}>
-	          {this.props.path}
 	        </td>
 	        <td className={styles.td3}>
 	          {this.props.duration}
@@ -54,6 +48,6 @@ export default class SampleListItem extends Component<Props> {
  SampleListItem.PropTypes = {
  name: PropTypes.string.isRequired,
  path: PropTypes.string.isRequired,
- tags: PropTypes.array.isRequired,
+ tags: PropTypes.array,
  duration: PropTypes.number.isRequired
  }
