@@ -28,18 +28,21 @@ export default class MenuBuilder {
     return menu;
   }
 
-  importFile() {
+  importFileFolder() {
     console.log("in import");
     const selected = dialog.showOpenDialog({
-      properties: ['openFile'],
-      filters: [{
-        name: 'Audio Samples',
-        extension: ['mp3', 'wav']
-      }]
-    }, (samplePath) => {
-      console.log(samplePath);
+      properties: ['openFile', 'openDirectory', 'multiSelections'],
+    }, (samplePaths) => {
       //write file name, file path, etc to json
       //save json to storage
+      samplePaths.forEach(processMe)
+      var samplesToImport = null
+      function processMe(value, index){ //UNFINISHED
+        console.log("path " + (index+1) + ": " + value)
+        var fileName = value.split("\\")
+        console.log("fileName " + fileName[fileName.length-1])
+      }
+
     });
   }
 
@@ -202,11 +205,11 @@ export default class MenuBuilder {
         label: '&File',
         submenu: [
           {
-            label: '&Open File...',
+            label: '&Open Sample Folder...',
             accelerator: 'Ctrl+O',
             click: () => {
               //add function to import files
-              this.importFile();
+              this.importFileFolder();
             }
           },
           {

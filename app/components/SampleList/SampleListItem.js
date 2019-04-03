@@ -12,7 +12,7 @@ export default class SampleListItem extends Component<Props> {
 //send the selected sample to the waveform using ipcrenderer
   loadSample = () => {
     let currentSample = this.props.path
-    console.log("loading in sample at" + currentSample)
+    console.log("loading in sample at " + currentSample)
     const {ipcRenderer} = require('electron')
     ipcRenderer.send('update-sample', currentSample)
   }
@@ -44,8 +44,7 @@ export default class SampleListItem extends Component<Props> {
 
 }
 
-
- SampleListItem.PropTypes = {
+ SampleListItem.propTypes = {
  name: PropTypes.string.isRequired,
  path: PropTypes.string.isRequired,
  tags: PropTypes.array,

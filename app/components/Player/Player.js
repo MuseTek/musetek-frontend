@@ -13,7 +13,7 @@ export default class Player extends Component {
       playing: true,
     };
     this.wavesurfer;
-    //loading sample from samplelistitem
+    //loading sample from samplelistitem on name click
     const { ipcMain } = require('electron').remote
       ipcMain.on('update-sample', (event, arg)=>{
         console.log('updating sample')
