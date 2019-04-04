@@ -33,14 +33,21 @@ export default class MenuBuilder {
     const selected = dialog.showOpenDialog({
       properties: ['openFile', 'openDirectory', 'multiSelections'],
     }, (samplePaths) => {
-      //write file name, file path, etc to json
+      //TODO: write file name, file path, etc to json
       //save json to storage
       samplePaths.forEach(processMe)
-      var samplesToImport = null
-      function processMe(value, index){ //UNFINISHED
-        console.log("path " + (index+1) + ": " + value)
-        var fileName = value.split("\\")
-        console.log("fileName " + fileName[fileName.length-1])
+
+      function processMe(value, index){ //opens each folder and logs files
+        const fs = require('fs')
+        fs.readdir(value, (err, files)=>{
+            files.forEach(fileName=>{
+              console.log("specific file name: " + "\"" + fileName + "\"")
+              })
+          })
+        console.log("path " + (index+1) + ": " + "\"" + value + "\"")
+        //logs the folder name, if needed
+        var folderName = value.split("\\")
+        console.log("folder name: " + "\"" + folderName[folderName.length-1] + "\"")
       }
 
     });
