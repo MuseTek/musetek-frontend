@@ -6,6 +6,7 @@ export default class MenuBuilder {
   mainWindow: BrowserWindow;
 
   constructor(mainWindow: BrowserWindow) {
+
     this.mainWindow = mainWindow;
   }
 
@@ -41,7 +42,10 @@ export default class MenuBuilder {
         const fs = require('fs')
         fs.readdir(value, (err, files)=>{
             files.forEach(fileName=>{
+              //FAILED ATTEMPT at using ipc to send filename to Home.js
+              //const {ipcRenderer} = require('electron')
               console.log("specific file name: " + "\"" + fileName + "\"")
+            //  ipcRenderer.send('load-sample', fileName)
               })
           })
         console.log("path " + (index+1) + ": " + "\"" + value + "\"")

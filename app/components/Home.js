@@ -12,10 +12,20 @@ const testsamples = [
     {name: "birds chirping (local to roddur)", path: "C:\\Users\\roddu\\Documents\\Audacity\\Samples\\birds chirping.mp3", tags: ["bright", "punchy"], duration: 2345},
   ]
 
+
+
 export default class Home extends Component {
   constructor(props) {
     super(props);
-  }
+    //FAILED ATTEMPT at loading sample from menu.js using IPC
+  /*  const {ipcMain} = require("electron").remote
+    ipcMain.on('load-sample', (event, arg)=>{
+        console.log("caught: " + arg)
+      }) */
+  };
+
+
+
 
   // componentDidMount() {
   //   //this.importFiles();
