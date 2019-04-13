@@ -67,6 +67,11 @@ app.on('ready', async () => {
     await installExtensions();
   }
 
+const { ipcMain } = require('electron')
+ipcMain.on('update-list', (event, arg) => {
+  event.sender.send('update-list-forward', arg)
+  console.log("update list")
+})
   mainWindow = new BrowserWindow({
     show: false,
     width: 1024,

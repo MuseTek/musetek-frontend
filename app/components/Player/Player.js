@@ -18,7 +18,8 @@ export default class Player extends Component {
       ipcMain.on('update-sample', (event, arg)=>{
         console.log('updating sample')
         console.log("arg is " + arg)
-        this.wavesurfer.load(arg)
+        const path = arg
+        this.wavesurfer.load(path)
         })
   }
 

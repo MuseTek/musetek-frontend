@@ -8,6 +8,17 @@ export default class MenuBuilder {
   constructor(mainWindow: BrowserWindow) {
 
     this.mainWindow = mainWindow;
+
+    // const { ipcMain } = require('electron').remote
+    
+
+    // mainWindow.webContents.on('update-list', (event, arg)=>{
+    //   console.log('updating list');
+    // })
+
+    // ipcMain.on('update-list', (event, arg)=>{
+    //   console.log('updating list');
+    // })
   }
 
   buildMenu() {
@@ -18,10 +29,10 @@ export default class MenuBuilder {
       this.setupDevelopmentEnvironment();
     }
 
-    const template =
-      process.platform === 'darwin'
-        ? this.buildDarwinTemplate()
-        : this.buildDefaultTemplate();
+    const template = this.buildDefaultTemplate();
+      // process.platform === 'darwin'
+      //   ? this.buildDarwinTemplate()
+      //   : this.buildDefaultTemplate();
 
     const menu = Menu.buildFromTemplate(template);
     Menu.setApplicationMenu(menu);
@@ -29,8 +40,11 @@ export default class MenuBuilder {
     return menu;
   }
 
-  importFileFolder() {
-    console.log("in import");
+  
+
+  importFileFolder(mainWindow) {
+  
+ 
     const selected = dialog.showOpenDialog({
       properties: ['openFile', 'openDirectory', 'multiSelections'],
     }, (samplePaths) => {
@@ -41,12 +55,20 @@ export default class MenuBuilder {
       function processMe(value, index){ //opens each folder and logs files
         const fs = require('fs')
         fs.readdir(value, (err, files)=>{
+
             files.forEach(fileName=>{
+              const fs = require('fs')
+              
+              mainWindow.webContents.send('load-sample',value+"/"+fileName)
+              
+              
               //FAILED ATTEMPT at using ipc to send filename to Home.js
-              //const {ipcRenderer} = require('electron')
+              // const {ipcRenderer} = require('electron')
               console.log("specific file name: " + "\"" + fileName + "\"")
-            //  ipcRenderer.send('load-sample', fileName)
-              })
+              
+
+           }); 
+              
           })
         console.log("path " + (index+1) + ": " + "\"" + value + "\"")
         //logs the folder name, if needed
@@ -220,7 +242,7 @@ export default class MenuBuilder {
             accelerator: 'Ctrl+O',
             click: () => {
               //add function to import files
-              this.importFileFolder();
+              this.importFileFolder(this.mainWindow);
             }
           },
           {

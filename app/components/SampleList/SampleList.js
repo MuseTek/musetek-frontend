@@ -11,9 +11,33 @@ type Props = {};
 export default class SampleList extends Component<Props> {
   props: Props;
 
+  constructor(){
+    super();
+    this.state = { currState: true };
+    this.updateState = this.updateState.bind(this)
+    
+  
+
+    
+    
+  }
+
+  updateState(){
+    console.log("update state");
+    this.setState(previousState => (
+      { currState: !previousState.currState }
+    ));
+  }
+
+ 
+
+  
+
   render() {
+    
     return (
       <div className={styles.container} data-tid="container">
+      <button onClick = {this.updateState}>CLICK</button>
         <table className={styles.head}>
           <tr>
             <th>Name</th>
@@ -31,4 +55,6 @@ export default class SampleList extends Component<Props> {
       </div>
     );
   }
+
+ 
 }
