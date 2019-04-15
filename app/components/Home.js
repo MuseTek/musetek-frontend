@@ -13,6 +13,9 @@ import {getTags} from '../utils/client';
 
 var testsamples = [
     {name: "rain (local to roddur)", path: "C:\\Users\\roddu\\Documents\\Audacity\\Samples\\rain.mp3", tags: ["dark", "ambient"], duration: 1234},
+    {name: "test1", path: "C:\\Users\\roddu\\Documents\\Audacity\\Samples\\rain.mp3", tags: ["punchy", "ambient"], duration: 1234},
+    {name: "test2", path: "C:\\Users\\roddu\\Documents\\Audacity\\Samples\\rain.mp3", tags: ["dark"], duration: 1234},
+    {name: "test3", path: "C:\\Users\\roddu\\Documents\\Audacity\\Samples\\rain.mp3", tags: ["bright"], duration: 1234},
     // {name: "birds chirping (local to roddur)", path: "C:\\Users\\roddu\\Documents\\Audacity\\Samples\\birds chirping.mp3", tags: ["bright", "punchy"], duration: 2345},
   ]
 

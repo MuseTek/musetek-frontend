@@ -29,18 +29,19 @@ export default class SampleList extends Component<Props> {
     ));
   }
 
- 
-
-  
+ search(){
+  searchTag = document.getElementById("tagSearch").value;
+ }
 
   render() {
-    
+    var searchTag = "dark";
     return (
       <div className={styles.container} data-tid="container">
+      <input type="text" id="tagSearch" /> <button onClick={this.search}>Search Tags</button><br/> 
       <button onClick = {this.updateState}>CLICK</button>
         <table className={styles.head}>
           <tr>
-            <th>Name</th>
+            <th>Name{searchTag}</th>
             <th>Duration</th>
             <th>Tags</th>
           </tr>
@@ -48,7 +49,7 @@ export default class SampleList extends Component<Props> {
         <div className={styles.innerTable}>
           <table className={styles.songsTable}>
             {
-              this.props.samples.map(s=> <SampleListItem name={s.name} path={s.path} tags={s.tags} duration={s.duration} />)
+              this.props.samples.map(s=> <SampleListItem name={s.name} path={s.path} tags={s.tags} duration={s.duration} search={searchTag}/>)
             }
           </table>
         </div>

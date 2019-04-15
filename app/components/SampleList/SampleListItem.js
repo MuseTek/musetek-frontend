@@ -18,27 +18,53 @@ export default class SampleListItem extends Component<Props> {
   }
 
   render() {
+  	{var name = this.props.name};
+  	{var tags = this.props.tags};
+  	{var search = this.props.search};
 
-    return (
-    	<tr onClick={this.loadSample} className={styles.row}>
+  	var show = 0;
+  	var i;
+  	for (i = 0; i < tags.length; i++)
+  	{
+  		if (tags[i] == search)
+  			show = 1;
+  	}
 
-	        <td className={styles.td1}>
-	         {this.props.name}
-	        </td>
-	        <td className={styles.td3}>
-	          {this.props.duration}
-	        </td>
-	        <td className={styles.td4}>
-	          <table>
-	          	<tr>
-	          		{this.props.tags.map(item => {
-	          			return <td>|{item}|</td>;
-	        		})}
-	          	</tr>
-	          </table>
-	        </td>
-        </tr>
-    );
+  	if (search == "")
+  		show = 1;
+
+  	if (show == 1)
+  	{
+	    return (
+	    	<tr onClick={this.loadSample} className={styles.row}>
+
+		        <td className={styles.td1}>
+		         {name}
+		        </td>
+		        <td className={styles.td3}>
+		          {this.props.duration}
+		        </td>
+		        <td className={styles.td4}>
+		          <table>
+		          	<tr>
+		          		{this.props.tags.map(item => {
+		          			return <td>|{item}|</td>;
+		        		})}
+		          	</tr>
+		          </table>
+		        </td>
+	        </tr>
+	    );
+	}
+	else
+	{
+		return (
+	    	<tr>
+	        </tr>
+	    );
+
+	}
+	
   }
 
 
