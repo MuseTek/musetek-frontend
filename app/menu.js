@@ -55,13 +55,16 @@ export default class MenuBuilder {
       function processMe(value, index){ //opens each folder and logs files
         const fs = require('fs')
         fs.readdir(value, (err, files)=>{
-
+            
             files.forEach(fileName=>{
               const fs = require('fs')
+              if(!fileName.endsWith("asd")){
+                  
+              
               
               mainWindow.webContents.send('load-sample',value+"/"+fileName)
               
-              
+            }
               //FAILED ATTEMPT at using ipc to send filename to Home.js
               // const {ipcRenderer} = require('electron')
               console.log("specific file name: " + "\"" + fileName + "\"")

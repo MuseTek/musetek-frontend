@@ -6,6 +6,7 @@ import styles from './Home.css';
 import Player from './Player/Player'
 import SampleList from './SampleList/SampleList'
 import storage from 'electron-json-storage';
+import {getTags} from '../utils/client';
 // import fs from 'node'; 
 // import dialog from 'node';
 // import remote from 'node';
@@ -25,13 +26,23 @@ export default class Home extends Component {
     var ipcRenderer = require('electron').ipcRenderer;
     ipcRenderer.on('load-sample', function (event,store) {
       console.log(store)
-      var sample = {name:store,path:store,tags:[],duration:23}
+      var tags = []
+    
+    getTags(store, function(tags_back){
+      console.log("in callback")
+      console.log(tags_back)
+       tags = tags_back;
+       var sample = {name:store,path:store,tags:tags,duration:23}
     testsamples.push(sample)
-    // this.forceUpdateHandler
-    
-    
     ipcRenderer.send('update-list',testsamples)
     console.log(testsamples)
+
+    });
+
+      
+    // this.forceUpdateHandler
+    
+  
 });
       
   };
