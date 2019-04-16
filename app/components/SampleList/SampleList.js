@@ -13,9 +13,9 @@ export default class SampleList extends Component<Props> {
 
   constructor(){
     super();
-    this.state = { currState: true };
+    this.state = { currState: true, query: '' };
     this.updateState = this.updateState.bind(this)
-    
+    this.search = this.search.bind(this)
   
 
     
@@ -30,18 +30,20 @@ export default class SampleList extends Component<Props> {
   }
 
  search(){
-  searchTag = document.getElementById("tagSearch").value;
+  let searchTag = document.getElementById("tagSearch").value;
+  this.setState({
+    query: searchTag
+  });
  }
 
   render() {
-    var searchTag = "dark";
     return (
       <div className={styles.container} data-tid="container">
       <input type="text" id="tagSearch" /> <button onClick={this.search}>Search Tags</button><br/> 
       <button onClick = {this.updateState}>CLICK</button>
         <table className={styles.head}>
           <tr>
-            <th>Name{searchTag}</th>
+            <th>Name</th>
             <th>Duration</th>
             <th>Tags</th>
           </tr>
@@ -49,7 +51,7 @@ export default class SampleList extends Component<Props> {
         <div className={styles.innerTable}>
           <table className={styles.songsTable}>
             {
-              this.props.samples.map(s=> <SampleListItem name={s.name} path={s.path} tags={s.tags} duration={s.duration} search={searchTag}/>)
+              this.props.samples.map(s=> <SampleListItem name={s.name} path={s.path} tags={s.tags} duration={s.duration} search={this.state.query}/>)
             }
           </table>
         </div>
