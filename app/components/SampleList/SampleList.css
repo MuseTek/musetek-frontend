@@ -29,3 +29,10 @@
   width: 100%;
   border-collapse: collapse;
 }
+
+.searchBox {
+  width:300px;
+  margin-left: 5%;
+  margin-top: 7px;
+  margin-bottom: 3px;
+}

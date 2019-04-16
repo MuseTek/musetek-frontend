@@ -16,7 +16,7 @@ export default class SampleList extends Component<Props> {
     this.state = { currState: true, query: '' };
     this.updateState = this.updateState.bind(this)
     this.search = this.search.bind(this)
-  
+    this.resetSearch = this.resetSearch.bind(this)
 
     
     
@@ -41,11 +41,23 @@ export default class SampleList extends Component<Props> {
   });
  }
 
+  resetSearch(){
+  let searchTag = '';
+  document.getElementById("tagSearch").value = '';
+  var tagArray = searchTag.split(",");
+
+  this.setState({
+    query: tagArray
+  });
+ }
+
   render() {
     return (
       <div className={styles.container} data-tid="container">
-      <input type="text" id="tagSearch" /> <button onClick={this.search}>Search Tags</button><br/> 
-      <button onClick = {this.updateState}>CLICK</button>
+      <button onClick = {this.updateState}>CLICK</button><br/> 
+      <span className={styles.searchSpan}>
+        <input type="text" id="tagSearch" className={styles.searchBox}/> <button className={styles.searchButton} onClick={this.search}>Search Tags</button> <button className={styles.searchReset} onClick={this.resetSearch}>Clear Search</button>
+      </span>
         <table className={styles.head}>
           <tr>
             <th>Name</th>

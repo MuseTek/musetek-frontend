@@ -24,14 +24,20 @@ export default class SampleListItem extends Component<Props> {
 
   	var show = 0;
   	var i;
-  	for (i = 0; i < tags.length; i++)
+  	for (i = 0; i < search.length; i++)
   	{	
+  		show = 0;
   		var j;
-  		for (j = 0; j < search.length; j++)
+  		for (j = 0; j < tags.length; j++)
   		{
-	  		if (tags[i].toLowerCase() == search[j].toLowerCase())
+	  		if (search[i].toLowerCase() == tags[j].toLowerCase())
+	  		{
 	  			show = 1;
+	  			break;
+	  		}
   		}
+  		if (show == 0)
+  			break;
   	}
 
   	if (search == "")
@@ -52,7 +58,7 @@ export default class SampleListItem extends Component<Props> {
 		          <table>
 		          	<tr>
 		          		{this.props.tags.map(item => {
-		          			return <td>|{item}|</td>;
+		          			return <td><div className={styles.tag}>{item}</div></td>;
 		        		})}
 		          	</tr>
 		          </table>
