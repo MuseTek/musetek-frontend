@@ -16,3 +16,8 @@
 	margin-right: 10px;
 	border-radius: 5px;
 }
+
+.sampleName {
+	cursor: pointer;
+	display: inline-block;
+}

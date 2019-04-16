@@ -49,7 +49,7 @@ export default class SampleListItem extends Component<Props> {
 	    	<tr onClick={this.loadSample} className={styles.row}>
 
 		        <td className={styles.td1}>
-		         {name}
+		         <div className={styles.sampleName}>{name}</div>
 		        </td>
 		        <td className={styles.td3}>
 		          {this.props.duration}
