@@ -25,9 +25,13 @@ export default class SampleListItem extends Component<Props> {
   	var show = 0;
   	var i;
   	for (i = 0; i < tags.length; i++)
-  	{
-  		if (tags[i] == search)
-  			show = 1;
+  	{	
+  		var j;
+  		for (j = 0; j < search.length; j++)
+  		{
+	  		if (tags[i].toLowerCase() == search[j].toLowerCase())
+	  			show = 1;
+  		}
   	}
 
   	if (search == "")

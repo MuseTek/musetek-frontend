@@ -31,8 +31,13 @@ export default class SampleList extends Component<Props> {
 
  search(){
   let searchTag = document.getElementById("tagSearch").value;
+  var tagArray = searchTag.split(",");
+  var i;
+  for (i = 0; i < tagArray.length; i++)
+    tagArray[i] = tagArray[i].trim();
+
   this.setState({
-    query: searchTag
+    query: tagArray
   });
  }
 
