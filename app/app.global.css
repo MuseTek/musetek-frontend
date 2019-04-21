@@ -10,7 +10,7 @@ body {
   position: relative;
   color: white;
   height: 100vh;
-  background-color: #232c39;
+  background: linear-gradient(to bottom, #959595 0%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#4e4e4e 76%,#383838 87%,#1b1b1b 100%);
   font-family: Arial, Helvetica, Helvetica Neue, serif;
   overflow-y: hidden;
 }
@@ -41,4 +41,16 @@ a:hover {
   opacity: 1;
   text-decoration: none;
   cursor: pointer;
+}
+
+button {
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 12px;
+  margin: 10px 2px;
+  transition: 0.5s ease all;
+}
+
+button:hover {
+  background-color: #bfbfbf;
 }

@@ -54,15 +54,15 @@ export default class SampleList extends Component<Props> {
   render() {
     return (
       <div className={styles.container} data-tid="container">
-      <button onClick = {this.updateState}>CLICK</button><br/> 
-      <span className={styles.searchSpan}>
-        <input type="text" id="tagSearch" className={styles.searchBox}/> <button className={styles.searchButton} onClick={this.search}>Search Tags</button> <button className={styles.searchReset} onClick={this.resetSearch}>Clear Search</button>
-      </span>
+        <button onClick = {this.updateState}>Load Samples</button><br/> 
+        <span className={styles.searchSpan}>
+          <input type="text" id="tagSearch" className={styles.searchBox}/> <button className={styles.searchButton} onClick={this.search}>Search Tags</button> <button className={styles.searchReset} onClick={this.resetSearch}>Clear Search</button>
+        </span>
         <table className={styles.head}>
           <tr>
-            <th>Name</th>
-            <th>Duration</th>
-            <th>Tags</th>
+            <th className={styles.nameHeader} >Name</th>
+            <th className={styles.durationHeader}>Duration</th>
+            <th className={styles.tagHeader}>Tags</th>
           </tr>
         </table>
         <div className={styles.innerTable}>

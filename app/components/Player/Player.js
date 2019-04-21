@@ -77,13 +77,13 @@ export default class Player extends Component {
 
     return (
       <div className={styles.container} data-tid="container">
-        <p>Player goes here!</p>
-        <a onClick={this.loadWaveForm}>Load Waveform</a>
-        <div className={styles.waveform} id='waveform'></div>
-        <button type="button" onClick={this.previous} id="previous-button">Previous</button>
-        <button type="button" onClick={this.restart} id="restart-button">Restart</button>
-        <button type="button" onClick={this.play} id="play-button">Play/Pause</button>
-        <button type="button" onClick={this.next} id="next-button">Next</button>
+        <div className={styles.innercontainer}>
+          <div className={styles.waveform} id='waveform'></div>
+          <button type="button" onClick={this.previous} id="previous-button">Previous</button>
+          <button type="button" onClick={this.restart} id="restart-button">Restart</button>
+          <button type="button" onClick={this.play} id="play-button">Play/Pause</button>
+          <button type="button" onClick={this.next} id="next-button">Next</button>
+        </div>
       </div>
     );
   }
